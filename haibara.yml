@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+database:
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password: root
+  name: haibara
+  maxIdleConn: 16
+  maxOpenConn: 32
+  connMaxLifeTime: 1h
+  slowSqlTime: 100ms
+  printSql: true
+
+log:
+  #  filename: haibara.log
+  level: DEBUG
