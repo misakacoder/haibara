@@ -54,8 +54,8 @@ func initRouter(router *gin.Engine) {
 func start(router *gin.Engine) {
 	port := config.Configuration.Server.Port
 	banner := strings.Builder{}
-	startUpTime := (time.Now().UnixMilli() - startTime.UnixMilli()) / 1000
-	banner.WriteString(fmt.Sprintf("Started haibara in %d seconds...", startUpTime))
+	startUpTime := time.Since(startTime)
+	banner.WriteString(fmt.Sprintf("Started haibara in %.2f seconds...", startUpTime.Seconds()))
 	addresses := util.GetLocalAddr()
 	for _, address := range addresses {
 		banner.WriteString(fmt.Sprintf("\n - Listen on: http://%s:%d", address, port))
